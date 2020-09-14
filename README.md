@@ -1,3 +1,3 @@
 # JBEHS
 
-cd username.github.io
+Jai Bharat English High School.

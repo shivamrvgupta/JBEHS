@@ -1,0 +1,363 @@
+<!DOCTYPE html>
+<html lang="en">
+{% load static %}
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  <title>
+    JBHES | Result | {{ results.roll_number }}
+  </title>
+  <!-- MDB icon -->
+  <link rel="icon" href="{% static 'img/mdb-favicon.ico' %}" type="image/x-icon">
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.11.2/css/all.css">
+  <!-- Google Fonts Roboto -->
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap">
+  <!-- Bootstrap core CSS -->
+  <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}">
+  <!-- Material Design Bootstrap -->
+  <link rel="stylesheet" href="{% static 'css/mdb.min.css' %}">
+  <!-- Custom styles -->
+  <link rel="stylesheet" href="{% static 'css/style.css' %}">
+  <!-- Responsive styles -->
+  <link rel="stylesheet" href="{% static 'css/responsive.css' %}">
+  <!-- LightBox styles -->
+  <link rel="stylesheet" href="{% static 'css/lightbox.min.css' %}">
+
+</head>
+
+<body onload="myFunction()" id="home">
+
+
+  <div id="loading">
+  </div>
+
+  <!--Navbar-->
+  <nav class="navbar navbar-expand-lg navbar-dark unique-color-dark" id="main-nav">
+    <div class="container">
+      <!-- Navbar brand -->
+      <a class="navbar-brand noHover" href="{% url 'index' %}"><strong> JBHES
+          <hr class="deep-purple accent-2 mb-0 mt-0" style="width: 100%;">
+        </strong></a>
+      <!-- Collapse button -->
+      <button class="navbar-toggler first-button" type="button" data-toggle="collapse"
+        data-target="#navbarSupportedContent20" aria-controls="navbarSupportedContent20" aria-expanded="false"
+        aria-label="Toggle navigation">
+        <div class="animated-icon1"><span></span><span></span><span></span></div>
+      </button>
+
+      <!-- Collapsible content -->
+      <div class="collapse navbar-collapse" id="navbarSupportedContent20">
+
+        <!-- Links -->
+        <ul class="navbar-nav ml-auto">
+          <li class="nav-item">
+            <a class="nav-link active" href="{% url 'admission' %}">Admission Form</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link active" href="{% url 'rollnumber' %}">See Your Result</a>
+          </li>
+        </ul>
+        <!-- Links -->
+      </div>
+    </div>
+
+    <!-- Collapsible content -->
+  </nav>
+  <section>
+    <div class="container">
+      <div class="col-md-12 mt-5">
+        <div class="card mb-5 mt-5">
+          <div class="text-center info-color white-text">
+            <h4 class="title mt-3 mb-3">
+              Your Result :- <strong class="text-dark">{{ results.roll_number }}</strong></h4>
+          </div>
+          <!-- Card body -->
+          <div class="card-body">
+
+            <h6>Name : {{ results.student }} {{ results.student.middle_name }} {{ results.student.last_name }} </h6>
+            <h6>Roll Number : {{ results.roll_number }}</h6>
+            <h6>Class : {{ results.std }}</h6>
+            <h6>Class Teacher : {{ results.std.class_teacher.name.first_name }}
+              {{ results.std.class_teacher.name.middle_name }}
+              {{ results.std.class_teacher.name.last_name }}</h6>
+            <br>
+            <!-- Material form register -->
+
+            <div class="table-responsive text-nowrap">
+              <!--Table-->
+              <table class="table table-bordered table-striped">
+
+                <!--Table head-->
+                <thead>
+                  <tr>
+                    <th>Subject Code</th>
+                    <th>Subject Name</th>
+                    <th colspan="1">Marks Obtained</th>
+                  </tr>
+                </thead>
+                <!--Table head-->
+
+                <!--Table body-->
+                <tbody>
+                <tbody>
+                  <tr>
+                    <th scope="row">1</th>
+                    <td>Hindi</td>
+                    <td>{{ results.hindi }}</td>
+                  </tr>
+                  <tr>
+                    <th scope="row">2</th>
+                    <td>English</td>
+                    <td>{{ results.english }}</td>
+                  </tr>
+                  <tr>
+                    <th scope="row">3</th>
+                    <td>Marathi</td>
+                    <td>{{ results.marathi }}</td>
+                  </tr>
+
+                  <tr>
+                    <th scope="row">4</th>
+                    <td>Maths</td>
+                    <td>{{ results.maths }}</td>
+                  </tr>
+                  <tr>
+                    <th scope="row">5</th>
+                    <td>Science</td>
+                    <td>{{ results.science }}</td>
+                  </tr>
+                  <tr>
+                    <th scope="row">6</th>
+                    <td>Social Studies</td>
+                    <td>{{ results.social_studies }}</td>
+                  </tr>
+                  <tr>
+                    <th scope="row">7</th>
+                    <td>It</td>
+                    <td>{{ results.it }}</td>
+                  </tr>
+                  <tr style="background : #c8dbcd;">
+                    <td>Percentage</td>
+                    <td> Total</td>
+                    <td> <strong>{{ results.total_marks }}</strong></td>
+                  </tr>
+                  <tr style="background : #c8dbcd;">
+                    <td> {{ results.percentage }} %</td>
+                    <td>Out Off</td>
+                    <td> <strong>{{ results.outoff }}</strong></td>
+                  </tr>
+                  <tr style="background : #c8dbcd;">
+                    <td>Result:-</td>
+                    <td><strong>Passed</strong></td>
+                    <td></td>
+                  </tr>
+                </tbody>
+                <!--Table body-->
+
+
+              </table>
+              <!--Table-->
+            </div>
+            <!-- Click to get Your Certificate -->
+            <div class="text-center">
+              <button type="button" class="btn aqua-gradient" data-toggle="modal" data-target="#modalYT">Get Your
+                Certificate</button>
+            </div>
+            <!--Modal: modalYT-->
+            <div class="modal fade" id="modalYT" tabindex="-1" role="dialog" aria-labelledby="myModalLabel"
+              aria-hidden="true">
+              <div class="modal-dialog modal-lg" role="document">
+
+                <!--Content-->
+                <div class="modal-content">
+
+                  <!--Body-->
+                  <div class="modal-body mb-0 p-0">
+                    <div class="embed-responsive fluid embed-responsive-16by9 z-depth-1-half">
+                      <h1 class="name text-center">{{ results.student }} {{ results.student.middle_name }}
+                        {{ results.student.last_name }} </h1>
+                      <h4 class="break"></h4>
+                      <h4 class="percentage d-inline">{{ results.percentage }} %</h4>
+                      <h4 class="marks d-inline text-right">{{ results.total_marks }}/{{ results.outoff }}</h4>
+                    </div>
+                  </div>
+
+                  <!--Footer-->
+                  <div class="modal-footer justify-content-center flex-column flex-md-row">
+                    <span class="mr-4">You can collect your certificate from your Class Teacher</span>
+                    <div>
+                      <button type="button" class="btn btn-outline-primary btn-rounded btn-md ml-4"
+                        data-dismiss="modal">Close</button>
+
+
+                    </div>
+
+                  </div>
+                  <!--/.Content-->
+
+                </div>
+              </div>
+              <!--Modal: modalYT-->
+              <!-- Material form register -->
+            </div>
+            <!-- Card body -->
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <section id="footer">
+    <footer class="page-footer font-small unique-color-dark">
+      <br>
+      <!-- Footer Links -->
+      <div class="container text-center text-md-left">
+
+        <!-- Grid row -->
+        <div class="row mt-3 ">
+
+          <!-- Grid column -->
+          <div class="col-md-3 col-lg-4 col-xl-4 m2-4">
+
+            <!-- Content -->
+            <h6 class="text-uppercase font-weight-bold">Jai Bharat English High School</h6>
+            <hr class="deep-purple accent-2 mb-4 mt-0 d-inline-block mx-auto" style="width: 60%;">
+            <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Quis ex veniam odio accusantium sit aut dicta!
+              Dolorum, molestiae? Sunt, quam excepturi, blanditiis et mollitia officiis doloremque commodi, modi
+              corporis alias quaerat similique provident id. Ipsum dolore nostrum doloremque, numquam inventore
+              aspernatur eius vero, corporis molestias cumque doloribus ullam. Sapiente animi amet suscipit deleniti,
+              cumque minus?</p>
+
+          </div>
+          <!-- Grid column -->
+
+          <!-- Grid column -->
+
+          <!-- Grid column -->
+          <div class="col-md-4 col-lg-4 col-xl-4 mx-auto mb-4 text-center">
+
+            <!-- Links -->
+            <h6 class="text-uppercase font-weight-bold">Useful links</h6>
+            <hr class="deep-purple accent-2 mb-4 mt-0 d-inline-block mx-auto" style="width: 30%;">
+            <p>
+              <a class="" href="{% url 'index' %}">Home</a>
+            </p>
+            <p>
+              <a class="" href="#aboutus">About Us</a>
+            </p>
+            <p>
+              <a class="" href="#gallery">Gallery</a>
+            </p>
+            <p>
+              <a class="" href="#contactus">Contact Us</a>
+            </p>
+            <p>
+              <a class="" href="#login">Login</a>
+            </p>
+
+          </div>
+          <!-- Grid column -->
+
+          <!-- Grid column -->
+          <div class="col-md-4 col-lg-4 col-xl-4 mx-auto mb-md-0 mb-4">
+
+            <!-- Links -->
+            <h6 class="text-uppercase font-weight-bold">Contact</h6>
+            <hr class="deep-purple accent-2 mb-4 mt-0 d-inline-block mx-auto" style="width: 60px;">
+            <p>
+              <i class="fas fa-home mr-3"></i> Jai Bharat English High Scholl, Dombivli 421204, India</p>
+            <p>
+              <a class="" href="mailto:shivamrvgupta@gmail.com"><i class="fas fa-envelope mr-3"></i>
+                info@example.com</a>
+            </p>
+            <p>
+              <a class="" href="tel:8828584123"><i class="fas fa-phone mr-3"></i> + 01 234 567 88</p></a>
+            <p>
+              <a class="" href="fax:+0123456789"><i class="accent-2 fas fa-print mr-3"></i> + 01 234 567 89
+              </a></p>
+
+          </div>
+          <!-- Grid column -->
+
+        </div>
+        <!-- Grid row -->
+
+      </div>
+      <!-- Footer Links -->
+
+      <!-- Copyright -->
+      <hr class="deep-purple accent-2 mb-4">
+      <div class="container">
+        <!-- Grid row -->
+        <div class="row d-flex align-items-center ">
+
+          <!-- Grid column -->
+          <div class="col-md-7 col-lg-8">
+
+            <!--Copyright-->
+            <a href="{% static 'copyright.pdf' %}">
+              <p class="text-center text-md-left">Copyright &copy; <span class="year"> </span>
+            </a></p>
+
+          </div>
+          <!-- Grid column -->
+
+          <!-- Grid column -->
+          <div class="col-md-5 col-lg-4 ml-lg-0">
+
+            <!-- Social buttons -->
+            <div class="text-center text-md-right">
+              <ul class="list-unstyled list-inline">
+                <li class="list-inline-item">
+                  <a class="btn-floating btn-sm deep-purple accent-2 mx-1" href="https://www.facebook.com/">
+                    <i class="fab fa-facebook-f"></i>
+                  </a>
+                </li>
+                <li class="list-inline-item">
+                  <a class="btn-floating btn-sm deep-purple accent-2 mx-1" href="https://www.twitter.com/">
+                    <i class="fab fa-twitter"></i>
+                  </a>
+                </li>
+                <li class="list-inline-item">
+                  <a class="btn-floating btn-sm deep-purple accent-2 mx-1" href="http://mail.google.com/">
+                    <i class="fas fa-envelope"></i>
+                  </a>
+                </li>
+                <li class="list-inline-item">
+                  <a class="btn-floating btn-sm deep-purple accent-2 mx-1" href="https://www.linkedin.com/">
+                    <i class="fab fa-linkedin-in"></i>
+                  </a>
+                </li>
+              </ul>
+            </div>
+
+          </div>
+          <!-- Grid column -->
+
+        </div>
+        <!-- Grid row -->
+
+      </div>
+      <!-- Footer Links -->
+
+    </footer>
+  </section>
+
+  <!-- jQuery -->
+  <script type="text/javascript" src="{% static 'js/jquery.min.js' %}"></script>
+  <!-- Bootstrap tooltips -->
+  <script type="text/javascript" src="{% static 'js/popper.min.js' %}"></script>
+  <!-- Bootstrap core JavaScript -->
+  <script type="text/javascript" src="{% static 'js/bootstrap.min.js' %}"></script>
+  <!-- MDB core JavaScript -->
+  <script type="text/javascript" src="{% static 'js/mdb.min.js' %}"></script>
+  <!-- Custom Javascripts -->
+  <script type="text/javascript" src="{% static 'js/custom.js' %}"></script>
+  <!-- Lightbox Javascript -->
+  <script type="text/javascript" src="{% static 'js/lightbox.min.js' %}"></script>
+
+</body>
+
+</html>

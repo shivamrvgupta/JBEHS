@@ -1,0 +1,27 @@
+@media (min-width: 990px) {
+  #home-section{
+    min-height: 710px;
+  }
+  #home-section .dark-overlay{
+    min-height: 710px;
+    top: 0%;
+  }
+  .line{
+    display: contents;
+  }
+  .caption .title{   
+    letter-spacing: 5px;
+  }
+}
+@media (max-width: 990px) {
+  #home-section{
+    min-height: 850px;
+  }
+  #home-section .dark-overlay{
+    min-height: 850px;
+    top: -110px;
+  }
+  .caption .title{   
+    letter-spacing: 3px;
+  }
+}

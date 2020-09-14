@@ -1,0 +1,31 @@
+{% extends "base.html" %}
+{% block title %}
+| Add Result
+{% endblock title %}
+{% block content %}
+<section>
+  <div class="container">
+    <br>
+    <div class="row">
+      <div class="col-1"></div>
+
+      <div class="col-sm-10">
+        <div class="card">
+          <div class="card-title bg-info text-center text-white">
+            <h4 class="mt-2">Add Result</h4>
+          </div>
+          <div class="card-body">{% include '../_alerts.html' %} <form action="" method="POST">
+              {% csrf_token %}
+              {{ form }}
+              </br>
+              <button type="submit" class="btn aqua-gradient btn-rounded">Submit</button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <br>
+  <br>
+</section>
+{% endblock %}

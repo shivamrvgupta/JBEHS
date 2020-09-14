@@ -1,0 +1,92 @@
+{% extends "base.html" %}
+{% load static %}
+{% block title %}
+| Teachers Dashboard
+{% endblock title %}
+{% block content %}
+
+<section class="cards">
+  <br>
+  {% include "_alerts.html" %}
+  <br>
+  <br>
+
+  <div class="container">
+    {% if user.is_superuser %}
+    <div class="row">
+      <div class="col-lg-4" style="margin-bottom:2rem !important;">
+        <a href="{% url 'show_school' %}" class="text-white">
+          <div class="card" style="background:#48cfd3 ;">
+            <div class="card-body text-center text-white" style="height: 18rem;">
+              <br>
+              <i class="far fa-address-card text-white fa-7x"></i>
+              <br>
+              <br>
+              <h2 class="text-white">Update School Info</h2>
+            </div>
+          </div>
+        </a>
+      </div>
+      <div class="col-lg-4" style="margin-bottom:2rem !important;">
+        <a href=" {% url 'show_student' %}" class="text-white">
+          <div class="card" style="background:#48cfd3;height: 18rem;">
+            <div class="card-body text-center">
+              <br>
+              <i class="far fa-user-circle text-white fa-7x"></i>
+              <br>
+              <br>
+              <h2 class="text-white">Add Student</h2>
+            </div>
+          </div>
+        </a>
+      </div>
+      <div class="col-lg-4" style="margin-bottom:4rem !important;">
+        <a href=" {% url 'show_result' %}" class="text-white">
+          <div class="card" style="background:#48cfd3 ;">
+            <div class="card-body text-center text-white" style="height: 18rem;">
+              <br>
+              <i class="far fa-address-card  text-white fa-7x"></i>
+              <br>
+              <br>
+              <h2 class="text-white">Add Result</h2>
+            </div>
+          </div>
+        </a>
+      </div>
+    </div>
+    {% else %}
+    <div class="row">
+      <div class="col-lg" style="margin-bottom:2rem !important;">
+        <a href="{% url 'show_student' %}" class="text-white">
+          <div class="card" style="background:#48cfd3;height: 18rem;">
+            <div class="card-body text-center">
+              <br>
+              <i class="far fa-user-circle text-white fa-7x"></i>
+              <br>
+              <br>
+              <h2 class="text-white">Add Student</h2>
+            </div>
+          </div>
+        </a>
+      </div>
+      <div class="col-lg" style="margin-bottom:4rem !important;">
+        <a href="{% url 'show_result' %}" class="text-white">
+          <div class="card" style="background:#48cfd3 ;">
+            <div class="card-body text-center text-white" style="height: 18rem;">
+              <br>
+              <i class="far fa-address-card text-white fa-7x"></i>
+              <br>
+              <br>
+              <h2 class="text-white">Add Result</h2>
+            </div>
+          </div>
+
+        </a>
+      </div>
+    </div>
+  </div>
+  {% endif%}
+</section>
+
+
+{% endblock %}

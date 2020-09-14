@@ -1,0 +1,37 @@
+{% extends "base.html" %}
+{% block title %}
+| Update Result
+{% endblock title %}
+{% block content %}
+<section>
+  <div class="container">
+    <br>
+    <div class="row">
+      <div class="col-sm-10 offset-1">
+        <div class="card">
+          <div class="card-title bg-info text-center text-white">
+            <h4 class="mt-2">Update School Details </h4>
+          </div>
+          <div class="card-body">{% include '../_alerts.html' %} <form action="" method="POST">
+              {% csrf_token %}
+              {% for result in results %}
+              <label for="form-control">Student's Name:</label>
+              <input type="text"
+                value="{{ result.student }} {{ result.student.middle_name }} {{ result.student.last_name }}"
+                class="form-control" readonly>
+              <label for="">School Name: </label>
+              <input type="text" value="{{ result.school }}" class="form-control" readonly>
+              {% endfor %}
+              {{ form }}
+              </br>
+              <button type="submit" class="btn aqua-gradient btn-rounded">Submit</button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <br>
+  <br>
+</section>
+{% endblock %}

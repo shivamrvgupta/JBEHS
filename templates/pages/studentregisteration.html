@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html lang="en">
+{% load static %}
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  <title>
+    JBEHS | Admission Form
+  </title>
+  <!-- MDB icon -->
+  <link rel="icon" href="{% static 'img/mdb-favicon.ico' %}" type="image/x-icon">
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.11.2/css/all.css">
+  <!-- Google Fonts Roboto -->
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap">
+  <!-- Bootstrap core CSS -->
+  <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}">
+  <!-- Material Design Bootstrap -->
+  <link rel="stylesheet" href="{% static 'css/mdb.min.css' %}">
+  <!-- Custom styles -->
+  <link rel="stylesheet" href="{% static 'css/style.css' %}">
+  <!-- Responsive styles -->
+  <link rel="stylesheet" href="{% static 'css/responsive.css' %}">
+  <!-- LightBox styles -->
+  <link rel="stylesheet" href="{% static 'css/lightbox.min.css' %}">
+
+</head>
+
+<body onload="myFunction()" id="home">
+
+
+  <div id="loading">
+  </div>
+
+  <!--Navbar-->
+  <nav class="navbar navbar-expand-lg navbar-dark unique-color-dark" id="main-nav">
+    <div class="container">
+      <!-- Navbar brand -->
+      <a class="navbar-brand noHover" href="{% url 'index' %}"><strong> JBEHS
+          <hr class="deep-purple accent-2 mb-0 mt-0" style="width: 100%;">
+        </strong></a>
+      <!-- Collapse button -->
+      <button class="navbar-toggler first-button" type="button" data-toggle="collapse"
+        data-target="#navbarSupportedContent20" aria-controls="navbarSupportedContent20" aria-expanded="false"
+        aria-label="Toggle navigation">
+        <div class="animated-icon1"><span></span><span></span><span></span></div>
+      </button>
+
+      <!-- Collapsible content -->
+      <div class="collapse navbar-collapse" id="navbarSupportedContent20">
+
+        <!-- Links -->
+        <ul class="navbar-nav ml-auto">
+          <li class="nav-item">
+            <a class="nav-link active" href="{% url 'admission' %}">Admission Form</a>
+
+          </li>
+        </ul>
+        <!-- Links -->
+      </div>
+    </div>
+
+    <!-- Collapsible content -->
+  </nav>
+  <section>
+    <div class="container">
+      <br>
+      <div class="row">
+        <div class="col-1"></div>
+
+        <div class="col-sm-10">
+          <div class="card">
+            <div class="card-title bg-info text-center text-white">
+              <h4 class="mt-2">Register Student</h4>
+            </div>
+            <div class="card-body">{% include '../_alerts.html' %} <form action="" method="POST">
+                {% csrf_token %}
+                <div class="row">
+                  <div class="col-9">
+                    <div class="alert alert-danger alert-dismissible fade show" role="alert">
+                      <h5 class="text-center mt-1 mb-1">Note :- You will Get StudentCode From Clerk</h5>
+                      <button type="button" class="close mt-1 mb-1" data-dismiss="alert" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                      </button>
+                    </div>
+                  </div>
+                  <div class="col-3">
+                    <div class="text-right">
+                      <a href="{% url 'index' %}"><button type="button" class="btn aqua-gradient btn-small">Go
+                          Back</button>
+                      </a>
+                    </div>
+                  </div>
+                </div>
+                {{ form }}
+                </br>
+                <button data-toggle="modal" data-target="#exampleModal" type="button"
+                  class="btn aqua-gradient btn-rounded">Next</button>
+                <!-- Modal -->
+                <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel">
+                  <div class="modal-dialog">
+                    <div class="modal-content">
+                      <div class="modal-header">
+                        <h5 class="modal-title text-center" id="exampleModalLabel"> Are You Sure?</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                          <span aria-hidden="true">&times;</span>
+                        </button>
+                      </div>
+                      <div class="modal-body text-center">
+                        <h2>Check again, if any mistake.</h2>
+                        <p>You will not able to update.</p>
+                      </div>
+                      <div class="modal-footer text-center">
+                        <form action="{% url 'admission' %}" method="POST">
+                          {% csrf_token %}
+                          <input type="hidden">
+                          <button type="button" class="btn btn-teal" data-dismiss="modal">No</button>
+                          <button type="submit" class="btn btn-success">Save</button>
+                        </form>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <br>
+    <br>
+  </section>
+
+  <section id="footer">
+    <footer class="page-footer font-small unique-color-dark">
+      <br>
+      <!-- Footer Links -->
+      <div class="container text-center text-md-left">
+
+        <!-- Grid row -->
+        <div class="row mt-3 ">
+
+          <!-- Grid column -->
+          <div class="col-md-3 col-lg-4 col-xl-4 m2-4">
+
+            <!-- Content -->
+            <h6 class="text-uppercase font-weight-bold">Jai Bharat English High School</h6>
+            <hr class="deep-purple accent-2 mb-4 mt-0 d-inline-block mx-auto" style="width: 60%;">
+            <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Quis ex veniam odio accusantium sit aut dicta!
+              Dolorum, molestiae? Sunt, quam excepturi, blanditiis et mollitia officiis doloremque commodi, modi
+              corporis alias quaerat similique provident id. Ipsum dolore nostrum doloremque, numquam inventore
+              aspernatur eius vero, corporis molestias cumque doloribus ullam. Sapiente animi amet suscipit deleniti,
+              cumque minus?</p>
+
+          </div>
+          <!-- Grid column -->
+
+          <!-- Grid column -->
+
+          <!-- Grid column -->
+          <div class="col-md-4 col-lg-4 col-xl-4 mx-auto mb-4 text-center">
+
+            <!-- Links -->
+            <h6 class="text-uppercase font-weight-bold">Useful links</h6>
+            <hr class="deep-purple accent-2 mb-4 mt-0 d-inline-block mx-auto" style="width: 30%;">
+            <p>
+              <a class="" href="{% url 'index' %}">Home</a>
+            </p>
+            <p>
+              <a class="" href="#aboutus">About Us</a>
+            </p>
+            <p>
+              <a class="" href="#gallery">Gallery</a>
+            </p>
+            <p>
+              <a class="" href="#contactus">Contact Us</a>
+            </p>
+            <p>
+              <a class="" href="#login">Login</a>
+            </p>
+
+          </div>
+          <!-- Grid column -->
+
+          <!-- Grid column -->
+          <div class="col-md-4 col-lg-4 col-xl-4 mx-auto mb-md-0 mb-4">
+
+            <!-- Links -->
+            <h6 class="text-uppercase font-weight-bold">Contact</h6>
+            <hr class="deep-purple accent-2 mb-4 mt-0 d-inline-block mx-auto" style="width: 60px;">
+            <p>
+              <i class="fas fa-home mr-3"></i> Jai Bharat English High School, Dombivli 421204, India</p>
+            <p>
+              <a class="" href="mailto:shivamrvgupta@gmail.com"><i class="fas fa-envelope mr-3"></i>
+                info@example.com</a>
+            </p>
+            <p>
+              <a class="" href="tel:8828584123"><i class="fas fa-phone mr-3"></i> + 01 234 567 88</p></a>
+            <p>
+              <a class="" href="fax:+0123456789"><i class="accent-2 fas fa-print mr-3"></i> + 01 234 567 89
+              </a></p>
+
+          </div>
+          <!-- Grid column -->
+
+        </div>
+        <!-- Grid row -->
+
+      </div>
+      <!-- Footer Links -->
+
+      <!-- Copyright -->
+      <hr class="deep-purple accent-2 mb-4">
+      <div class="container">
+        <!-- Grid row -->
+        <div class="row d-flex align-items-center ">
+
+          <!-- Grid column -->
+          <div class="col-md-7 col-lg-8">
+
+            <!--Copyright-->
+            <a href="{% static 'copyright.pdf' %}">
+              <p class="text-center text-md-left">Copyright &copy; <span class="year"> </span>
+            </a></p>
+
+          </div>
+          <!-- Grid column -->
+
+          <!-- Grid column -->
+          <div class="col-md-5 col-lg-4 ml-lg-0">
+
+            <!-- Social buttons -->
+            <div class="text-center text-md-right">
+              <ul class="list-unstyled list-inline">
+                <li class="list-inline-item">
+                  <a class="btn-floating btn-sm deep-purple accent-2 mx-1" href="https://www.facebook.com/">
+                    <i class="fab fa-facebook-f"></i>
+                  </a>
+                </li>
+                <li class="list-inline-item">
+                  <a class="btn-floating btn-sm deep-purple accent-2 mx-1" href="https://www.twitter.com/">
+                    <i class="fab fa-twitter"></i>
+                  </a>
+                </li>
+                <li class="list-inline-item">
+                  <a class="btn-floating btn-sm deep-purple accent-2 mx-1" href="http://mail.google.com/">
+                    <i class="fas fa-envelope"></i>
+                  </a>
+                </li>
+                <li class="list-inline-item">
+                  <a class="btn-floating btn-sm deep-purple accent-2 mx-1" href="https://www.linkedin.com/">
+                    <i class="fab fa-linkedin-in"></i>
+                  </a>
+                </li>
+              </ul>
+            </div>
+
+          </div>
+          <!-- Grid column -->
+
+        </div>
+        <!-- Grid row -->
+
+      </div>
+      <!-- Footer Links -->
+
+    </footer>
+  </section>
+
+  <!-- jQuery -->
+  <script type="text/javascript" src="{% static 'js/jquery.min.js' %}"></script>
+  <!-- Bootstrap tooltips -->
+  <script type="text/javascript" src="{% static 'js/popper.min.js' %}"></script>
+  <!-- Bootstrap core JavaScript -->
+  <script type="text/javascript" src="{% static 'js/bootstrap.min.js' %}"></script>
+  <!-- MDB core JavaScript -->
+  <script type="text/javascript" src="{% static 'js/mdb.min.js' %}"></script>
+  <!-- Custom Javascripts -->
+  <script type="text/javascript" src="{% static 'js/custom.js' %}"></script>
+  <!-- Lightbox Javascript -->
+  <script type="text/javascript" src="{% static 'js/lightbox.min.js' %}"></script>
+
+</body>
+
+</html>

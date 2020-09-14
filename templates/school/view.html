@@ -1,0 +1,39 @@
+{% extends "base.html" %}
+{% block title %}
+| School Details
+{% endblock %}
+{% block content %}
+<section>
+  <div class="container">
+    <div class="col-md-12 mt-5">
+      <div class="card mb-5 mt-5">
+        <div class="text-center info-color white-text">
+          <h4 class="title mt-3 mb-3">
+            School Details :</h4>
+        </div>
+        <!-- Card body -->
+        <div class="card-body">
+
+          <h6>Name : {{ school.name }}</h6>
+          <h6>School Code : {{ school.school_code }}</h6>
+          <h6>Address1 : {{ school.address_1 }}</h6>
+          {% if address_2 %}
+          <h6>Address2 : {{ school.address_2 }}</h6>
+          <h6>City : {{ school.city }}</h6>
+          <h6>zipcode Code : {{ school.zipcode }}</h6>
+          <h6>State: {{ school.state }}</h6>
+          {%else%}
+          <h6>City : {{ school.city }}</h6>
+          <h6>zipcode Code : {{ school.zipcode }}</h6>
+          <h6>State: {{ school.state }}</h6>
+          {% endif %}
+          <br>
+          <!-- Material form register -->
+        </div>
+        <!-- Card body -->
+      </div>
+    </div>
+  </div>
+  </div>
+</section>
+{% endblock %}

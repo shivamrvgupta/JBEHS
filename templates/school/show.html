@@ -1,0 +1,74 @@
+{% extends "base.html" %}
+{% block title %}
+| School Details
+{% endblock title %}
+{% block content %}
+<section>
+  <div class="container">
+    <br>
+    <div class="row">
+      <div class="col-1"></div>
+
+      <div class="col-sm-10">
+        <div class="card">
+          <div class="card-title bg-info text-center text-white">
+            <h4 class="text-center mt-2">Regisetered School Data</h4>
+          </div>
+          <div class="card-body">
+            {% if school %}
+            <table class="table table-hover">
+
+              <!--Table head-->
+              <thead>
+                <tr>
+                  <th>School Name</th>
+                  <th>School Code</th>
+                  <th class="text-center">Action</th>
+                </tr>
+              </thead>
+              <!--Table head-->
+
+              <!--Table body-->
+              <tbody>
+                {% for school in school %}
+                <tr>
+                  <td>{{ school.name }} </td>
+                  <td>{{ school.school_code}} </td>
+                  <td class="text-center">{% if user.is_superuser %}
+                    <a href="{% url 'update_school' school.id %}" type="submit" class=" btn btn-warning btn-sm"><i
+                        class="fas fa-edit"></i></a>
+                    <a href="{% url 'view' school.id %}" type="submit" class=" btn btn-info btn-sm"><i
+                        class="fas fa-eye fa-1x"></i></a>
+                    <form action="{% url 'delete_student' school.id %}" method="POST" class="d-inline">
+                      {% csrf_token %}
+                      <button type="submit" class="btn btn-danger btn-sm"><i class="fas fa-trash-alt"></i></button>
+                    </form>
+                    {% endif %}
+                </tr>
+                {% endfor %}
+              </tbody>
+              <!--Table body-->
+
+            </table>
+            <!--Table-->
+            {% else %}
+            <div class="py-5">
+              <h4 class="text-center alert alert-info"> No Records</h4>
+            </div>
+            {% endif %}
+          </div>
+          <br>
+          <div class="text-center">
+            <a href="{% url 'dashboard' %}" type="submit" class=" btn btn-warning btn-sm" style="font-size: medium;"><i
+                class="fas fa-sign-out-alt"></i>
+              Go to dashboard</a>
+          </div>
+        </div>
+      </div>
+      <div class="col-1"></div>
+    </div>
+  </div>
+  <br>
+  <br>
+</section>
+{% endblock %}

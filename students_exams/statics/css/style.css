@@ -1,0 +1,336 @@
+#loading {
+  position: fixed;
+  width: 100%;
+  background: #fff url("../img/loaders/ajax-loader.gif") no-repeat center;
+  height: 100vh;
+  z-index: 999999;
+}
+#register{
+  top: 50% !important;
+}
+.cards .card:hover{
+  box-shadow:1px 1px 10px 5px #2e2e2e48;
+  color : #00203FFF;
+}
+
+/* Icon 1 */
+
+.animated-icon1, .animated-icon2, .animated-icon3 {
+  width: 30px;
+  height: 20px;
+  position: relative;
+  margin: 0px;
+  -webkit-transform: rotate(0deg);
+  -moz-transform: rotate(0deg);
+  -o-transform: rotate(0deg);
+  transform: rotate(0deg);
+  -webkit-transition: .5s ease-in-out;
+  -moz-transition: .5s ease-in-out;
+  -o-transition: .5s ease-in-out;
+  transition: .5s ease-in-out;
+  cursor: pointer;
+  }
+  
+  .animated-icon1 span, .animated-icon2 span, .animated-icon3 span {
+  display: block;
+  position: absolute;
+  height: 3px;
+  width: 100%;
+  border-radius: 9px;
+  opacity: 1;
+  left: 0;
+  -webkit-transform: rotate(0deg);
+  -moz-transform: rotate(0deg);
+  -o-transform: rotate(0deg);
+  transform: rotate(0deg);
+  -webkit-transition: .25s ease-in-out;
+  -moz-transition: .25s ease-in-out;
+  -o-transition: .25s ease-in-out;
+  transition: .25s ease-in-out;
+  }
+  
+  .animated-icon1 span {
+  background: #e65100;
+  }
+  
+  .animated-icon2 span {
+  background: #e3f2fd;
+  }
+  
+  .animated-icon3 span {
+  background: #f3e5f5;
+  }
+  
+  .animated-icon1 span:nth-child(1) {
+  top: 0px;
+  }
+  
+  .animated-icon1 span:nth-child(2) {
+  top: 10px;
+  }
+  
+  .animated-icon1 span:nth-child(3) {
+  top: 20px;
+  }
+  
+  .animated-icon1.open span:nth-child(1) {
+  top: 11px;
+  -webkit-transform: rotate(135deg);
+  -moz-transform: rotate(135deg);
+  -o-transform: rotate(135deg);
+  transform: rotate(135deg);
+  }
+  
+  .animated-icon1.open span:nth-child(2) {
+  opacity: 0;
+  left: -60px;
+  }
+  
+  .animated-icon1.open span:nth-child(3) {
+  top: 11px;
+  -webkit-transform: rotate(-135deg);
+  -moz-transform: rotate(-135deg);
+  -o-transform: rotate(-135deg);
+  transform: rotate(-135deg);
+  }
+  
+  /* Icon 3*/
+  
+  .animated-icon2 span:nth-child(1) {
+  top: 0px;
+  }
+  
+  .animated-icon2 span:nth-child(2), .animated-icon2 span:nth-child(3) {
+  top: 10px;
+  }
+  
+  .animated-icon2 span:nth-child(4) {
+  top: 20px;
+  }
+  
+  .animated-icon2.open span:nth-child(1) {
+  top: 11px;
+  width: 0%;
+  left: 50%;
+  }
+  
+  .animated-icon2.open span:nth-child(2) {
+  -webkit-transform: rotate(45deg);
+  -moz-transform: rotate(45deg);
+  -o-transform: rotate(45deg);
+  transform: rotate(45deg);
+  }
+  
+  .animated-icon2.open span:nth-child(3) {
+  -webkit-transform: rotate(-45deg);
+  -moz-transform: rotate(-45deg);
+  -o-transform: rotate(-45deg);
+  transform: rotate(-45deg);
+  }
+  
+  .animated-icon2.open span:nth-child(4) {
+  top: 11px;
+  width: 0%;
+  left: 50%;
+  }
+  
+  /* Icon 4 */
+  
+  .animated-icon3 span:nth-child(1) {
+  top: 0px;
+  -webkit-transform-origin: left center;
+  -moz-transform-origin: left center;
+  -o-transform-origin: left center;
+  transform-origin: left center;
+  }
+  
+  .animated-icon3 span:nth-child(2) {
+  top: 10px;
+  -webkit-transform-origin: left center;
+  -moz-transform-origin: left center;
+  -o-transform-origin: left center;
+  transform-origin: left center;
+  }
+  
+  .animated-icon3 span:nth-child(3) {
+  top: 20px;
+  -webkit-transform-origin: left center;
+  -moz-transform-origin: left center;
+  -o-transform-origin: left center;
+  transform-origin: left center;
+  }
+  
+  .animated-icon3.open span:nth-child(1) {
+  -webkit-transform: rotate(45deg);
+  -moz-transform: rotate(45deg);
+  -o-transform: rotate(45deg);
+  transform: rotate(45deg);
+  top: 0px;
+  left: 8px;
+  }
+  
+  .animated-icon3.open span:nth-child(2) {
+  width: 0%;
+  opacity: 0;
+  }
+  
+  .animated-icon3.open span:nth-child(3) {
+  -webkit-transform: rotate(-45deg);
+  -moz-transform: rotate(-45deg);
+  -o-transform: rotate(-45deg);
+  transform: rotate(-45deg);
+  top: 21px;
+  left: 8px;
+  }
+
+  #home-section{
+    /* The image used */
+    background-image: url("../img/home-section.jpg");
+    width: 100%;
+    /* Set a specific height */
+  
+    /* Create the parallax scrolling effect */
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+
+}
+#home-section .dark-overlay{
+  top: 0%;
+  left: 0;
+  width: 100%;
+  background: #2e65b161;
+}
+.caption {
+  position: absolute;
+  left: 5%;
+  top: 78%;
+  text-align: left;
+}
+.caption .title{
+  color: #fff;
+  font-size: 5rem;
+  letter-spacing: 10px;
+}
+.caption .sub-title{
+  color: #fff;
+  font-size: 1.3rem;
+  letter-spacing: 4px;
+}
+.line{
+  color: white;
+  opacity: 0.8;
+}
+.title img{
+  width: 40%;
+}
+#key{
+    color: white;
+    margin-left: 2.5rem;
+    /* padding-left: 2%; */
+}
+#keyfactor{
+    color: white;
+    font-weight: 700;
+  }
+#factor{
+    background:  url(../img/school.png);  
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+#factor .overlay{
+  top: 0%;
+  left: 0;
+  width: 100%;
+  background:  #63080bd9 ;  
+}
+#ratio{
+    color: white;
+    margin-left: 2.5rem;
+    font-size: larger;
+    font-weight: 200;
+}
+#student{
+    font-size: xx-small;
+    font-weight: 100;
+}
+.text-wrap{
+  float: left;
+  margin: 10px;
+}
+#main-nav a{
+  color: #fff !important;
+  font-weight: bold;
+}
+#main-nav .nav-link {
+  border-bottom: 2px solid #fff;
+}
+#main-nav .active{
+  border-bottom: 6px solid #fff;
+
+}
+#main-nav a:hover{
+  border-bottom: 6px solid #7c4dff;
+}
+#main-nav .noHover {
+  pointer-events: none;
+}
+#rowtitle{
+  color: #a7161d;
+  font-size: xx-large;
+  font-weight: 700;
+}
+.color1{
+  background: #fff;
+}
+.color2{
+  background: #ed8f00;
+}
+.a a{
+  color: #000 !important;
+  font-weight: bold;
+}
+.textanchor{
+  color: #00203FFF;
+}
+
+/* Certificates */
+
+.fluid{
+  /* The image used */
+  background: #fff url('../img/certificate_img/background.png') no-repeat;  /* Set a specific height */
+  /* Create the parallax scrolling effect */
+  min-height: 450px;
+  background-repeat: no-repeat;
+  background-size: cover;
+
+}
+.fluid .name{
+width: 100%;
+margin-top: -27%;
+color: #d5b56f;
+font-weight: 1000;
+}
+
+.fluid .marks{
+  width: 100%;
+  color: #d5b56f;
+  font-weight: 1000;
+  font-size: 1.2rem;
+  margin-left: 37%;
+}
+
+.fluid .percentage{
+  width: 100%;
+  color: #d5b56f;
+  font-weight: 1000;
+  font-size: 1.2rem;
+  margin-left: 26%;
+}
+
+.fluid .break{
+  margin-top: 5.4%;
+}

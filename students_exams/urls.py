@@ -1,0 +1,39 @@
+"""students_exams URL Configuration
+
+The `urlpatterns` list routes URLs to views. For more information please see:
+    https://docs.djangoproject.com/en/3.1/topics/http/urls/
+Examples:
+Function views
+    1. Add an import:  from my_app import views
+    2. Add a URL to urlpatterns:  path('', views.home, name='home')
+Class-based views
+    1. Add an import:  from other_app.views import Home
+    2. Add a URL to urlpatterns:  path('', Home.as_view(), name='home')
+Including another URLconf
+    1. Import the include() function: from django.urls import include, path
+    2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
+"""
+from django.contrib import admin
+from django.conf import settings
+from django.conf.urls.static import static
+from django.urls import include, path
+from pages import urls
+from enroll import urls
+from school import urls
+from students import urls
+from teachers import urls
+from accounts import urls
+from results import urls
+from contacts import urls
+
+
+urlpatterns = [
+    path('admin/', admin.site.urls),
+    path('', include('pages.urls')),
+    path('', include('enroll.urls')),
+    path('school/', include('school.urls')),
+    path('student/', include('students.urls')),
+    path('contact/', include('contacts.urls')),
+    path('accounts/', include('accounts.urls')),
+    path('rollnumber/', include('results.urls')),
+] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

@@ -1,0 +1,52 @@
+{% extends "base.html" %}
+{% block title %}
+| Login
+{% endblock %}
+{% block content %}
+<div class="container">
+  <div class="col-md-12 mt-5">
+    <div class="card mb-5 mt-5">
+      <div class="text-center info-color white-text">
+        <h4 class="title mt-3 mb-3">
+          Login </h4>
+      </div>
+
+      <!-- Card body -->
+      <div class="card-body">
+
+        {% include "_alerts.html" %}
+        <!-- Material form register -->
+        {% if user.is_authenticated %}
+        <h3 class="text-center">You are already logged in</h3>
+        <br>
+        <a href="{% url 'dashboard'%}" class="text-white"><button class="btn aqua-gradient btn-block mb-3" id="btn-one"
+            type="button">Go to
+            Dashboard</button></a>
+        {% else %}
+        <form method="POST">
+          {% csrf_token %}
+          <div class="md-form">
+            <i class="fa fa-user prefix"></i>
+            <input type="text" id="materialFormCardNameEx" name="username" class="form-control" required>
+            <label for="inputIconEx2">Username:</label>
+          </div>
+          <div class="md-form">
+            <i class="fa fa-lock prefix"></i>
+            <input type="password" id="materialFormCardNameEx" name="password" class="form-control" required>
+            <label for="inputIconEx2">Password:</label>
+          </div>
+          <br>
+          <button class="btn aqua-gradient btn-block mb-3" id="btn-one" type="submit"> Submit</button>
+        </form>
+        {% endif %}
+        <!-- Material form register -->
+      </div>
+      <!-- Card body -->
+    </div>
+  </div>
+</div>
+
+{% endblock %}
+<script>$('#btn-one').click(function () {
+    $('#btn-one').html('<span class="spinner-border spinner-border-sm mr-2" role="status" aria-hidden="true"></span>Loading...').addClass('disabled');
+  });</script>

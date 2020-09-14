@@ -1,0 +1,80 @@
+
+#header {
+  height: auto !important;
+  background: #3c1053FF;
+  color: white;
+}
+#branding h1 {
+  color: #ffffff;
+}
+a:link,
+a:visited {
+  color: #3c1053FF;
+}
+div.breadcrumbs {
+  background: #DF6589FF;
+  color: #f8f8f8;
+}
+div.breadcrumbs a {
+  color: #3c1053FF;
+}
+.module h2,
+.module caption,
+.inline-group h2 {
+  background: #DF6589FF;
+}
+button,
+input[type="submit"],
+input[type="button"],
+.submit-row input,
+a.button {
+  background: #10284e;
+  color: white;
+}
+.typewriter h1 {
+  font-size: 25px;
+  overflow: hidden; /* Ensures the content is not revealed until the animation */
+  border-right: 0 solid #fff; /* The typwriter cursor */
+  white-space: nowrap; /* Keeps the content on a single line */
+  margin: 0 auto; /* Gives that scrolling effect as the typing happens */
+  letter-spacing: 0.15em; /* Adjust as needed */
+  animation: typing 1.5s steps(30, end), blink-caret infinite;
+}
+
+/* The typing effect */
+@keyframes typing {
+  from {
+    width: 0;
+  }
+  to {
+    width: 100%;
+  }
+}
+
+/* The typewriter cursor effect */
+@keyframes blink-caret {
+  from,
+  to {
+    border-color: transparent;
+  }
+  50% {
+    border-color: #fff;
+  }
+}
+.submit-row {
+  background-color: #DF6589FF;
+}
+
+.success{
+  background-color: #10284e !important;
+  color: #DF6589FF !important;
+}
+.success a{
+  color: #DF6589FF !important;
+}
+.quiet {
+  color: #3c1053FF !important;
+}
+#content-related .module{
+  background:#adadad !important;
+}
